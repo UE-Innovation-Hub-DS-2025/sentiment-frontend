@@ -10,7 +10,7 @@ const LoadingState = () => (
         <p className="text-lg font-semibold text-gray-800">Analyzing Text</p>
       </div>
       <div className="w-full max-w-sm h-1.5 bg-blue-100 rounded-full overflow-hidden">
-        <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500 w-full"></div>
+        <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500 animate-progress"></div>
       </div>
     </div>
   </div>
