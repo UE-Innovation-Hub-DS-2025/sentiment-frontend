@@ -293,13 +293,11 @@ export default function SentimentAnalyzer() {
             </div>
 
             {/* Loading and Results Section */}
-            <AnimatePresence>
-              {isLoading ? (
-                <LoadingState />
-              ) : result ? (
-                <ResultsSection result={result} onTryAgain={handleReset} />
-              ) : null}
-            </AnimatePresence>
+            {isLoading ? (
+              <LoadingState />
+            ) : result ? (
+              <ResultsSection result={result} onTryAgain={handleReset} />
+            ) : null}
 
             {/* Error Message */}
             <AnimatePresence>

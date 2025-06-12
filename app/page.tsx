@@ -7,6 +7,7 @@ import Header from "./components/Header";
 
 // Dynamically import components with loading states
 const Hero = dynamic(() => import("./components/Hero"), {
+  ssr: true,
   loading: () => (
     <div className="h-32 flex items-center justify-center">
       <div className="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
@@ -17,6 +18,7 @@ const Hero = dynamic(() => import("./components/Hero"), {
 const SentimentAnalyzer = dynamic(
   () => import("./components/SentimentAnalyzer"),
   {
+    ssr: true,
     loading: () => (
       <div className="h-96 flex items-center justify-center">
         <div className="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
@@ -26,6 +28,7 @@ const SentimentAnalyzer = dynamic(
 );
 
 const Footer = dynamic(() => import("./components/Footer"), {
+  ssr: true,
   loading: () => null,
 });
 
@@ -48,15 +51,9 @@ export default function Page() {
       <GlobalStyles />
       <Header />
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <Suspense fallback={<div className="h-32" />}>
-          <Hero />
-        </Suspense>
-        <Suspense fallback={<div className="h-96" />}>
-          <SentimentAnalyzer />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Footer />
-        </Suspense>
+        <Hero />
+        <SentimentAnalyzer />
+        <Footer />
       </div>
     </div>
   );

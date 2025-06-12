@@ -3,8 +3,9 @@
 /.pnp
 .pnp.js
 
-out/
-.next/
+# Output
+out
+.next
 
 # Testing
 /coverage
@@ -15,6 +16,10 @@ out/
 
 # Misc
 .DS_Store
+.env
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Debug logs
 npm-debug.log*
