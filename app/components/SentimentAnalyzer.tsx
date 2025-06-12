@@ -114,7 +114,7 @@ export default function SentimentAnalyzer() {
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+      const apiUrl = "https://sentiment-api-zzbmypvz.cloud-station.app";
       const response = await fetch(`${apiUrl}/predict`, {
         method: "POST",
         headers: {
