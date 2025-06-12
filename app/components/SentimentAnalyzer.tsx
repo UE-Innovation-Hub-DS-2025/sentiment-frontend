@@ -127,7 +127,8 @@ export default function SentimentAnalyzer() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to analyze sentiment");
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || "Failed to analyze sentiment");
       }
 
       const data = await response.json();
@@ -140,7 +141,9 @@ export default function SentimentAnalyzer() {
       });
     } catch (err) {
       setError(
-        "Failed to analyze sentiment. Please check your connection and try again."
+        err instanceof Error
+          ? err.message
+          : "Failed to analyze sentiment. Please check your connection and try again."
       );
       console.error("Error:", err);
     } finally {
