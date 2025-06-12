@@ -1,16 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
 export default function Footer() {
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.8 }}
-      className="text-center mt-12 pb-8"
-    >
+    <footer className="text-center mt-12 pb-8">
       <div className="space-y-4">
         <p className="text-gray-500 text-sm">
           Powered by advanced machine learning algorithms
@@ -29,6 +23,6 @@ export default function Footer() {
           </a>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

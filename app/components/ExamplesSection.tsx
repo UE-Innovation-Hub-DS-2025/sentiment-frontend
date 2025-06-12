@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { Badge } from "../../components/ui/badge";
 import {
@@ -61,13 +60,8 @@ const getSentimentColor = (sentiment: string) => {
 };
 
 const ExamplesSection = ({ onExampleClick }: ExamplesSectionProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.3 }}
-    className="h-full"
-  >
-    <Card className="shadow-lg border-0 bg-white/90 backdrop-blur-sm h-full transition-all duration-500">
+  <div className="h-full">
+    <Card className="shadow-lg border-0 bg-white/90 backdrop-blur-sm h-full">
       <CardHeader className="pb-4">
         <CardTitle className="text-lg flex items-center gap-2">
           <MessageCircle className="w-5 h-5 text-blue-600" />
@@ -80,13 +74,10 @@ const ExamplesSection = ({ onExampleClick }: ExamplesSectionProps) => (
       <CardContent>
         <div className="space-y-2">
           {exampleTexts.map((example, index) => (
-            <motion.button
+            <button
               key={index}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
               onClick={() => onExampleClick(example.text)}
-              className="w-full p-3 text-left bg-gradient-to-r from-gray-50 to-blue-50 hover:from-blue-50 hover:to-purple-50 rounded-lg border-2 border-gray-100 hover:border-blue-200 transition-all duration-300 group"
+              className="w-full p-3 text-left bg-gradient-to-r from-gray-50 to-blue-50 hover:from-blue-50 hover:to-purple-50 rounded-lg border-2 border-gray-100 hover:border-blue-200 transition-colors duration-200 group"
             >
               <p className="text-sm text-gray-700 group-hover:text-gray-900">
                 {example.text}
@@ -100,12 +91,12 @@ const ExamplesSection = ({ onExampleClick }: ExamplesSectionProps) => (
                     example.sentiment.slice(1)}
                 </Badge>
               </div>
-            </motion.button>
+            </button>
           ))}
         </div>
       </CardContent>
     </Card>
-  </motion.div>
+  </div>
 );
 
 export default ExamplesSection;

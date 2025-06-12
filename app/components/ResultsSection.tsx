@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Brain, MessageCircle, TrendingUp } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
@@ -43,18 +42,12 @@ const getSentimentEmoji = (sentiment: string) => {
     case "negative":
       return "😞";
     default:
-      return "🤔";
+      return "😐";
   }
 };
 
 const ResultsSection = ({ result, onTryAgain }: ResultsSectionProps) => (
-  <motion.div
-    key="results"
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -10 }}
-    className="mb-8"
-  >
+  <div className="mb-8">
     <Card className="shadow-2xl border-0 bg-white/95 backdrop-blur-sm overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500"></div>
       <CardContent className="p-6">
@@ -121,26 +114,21 @@ const ResultsSection = ({ result, onTryAgain }: ResultsSectionProps) => (
         </div>
 
         {/* Try Again Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mt-6 flex justify-center"
-        >
+        <div className="mt-6 flex justify-center">
           <Button
             onClick={onTryAgain}
             variant="outline"
-            className="group hover:bg-blue-50 hover:border-blue-200 transition-all duration-300"
+            className="group hover:bg-blue-50 hover:border-blue-200 transition-colors duration-200"
           >
-            <MessageCircle className="w-4 h-4 mr-2 group-hover:text-blue-600 transition-colors" />
-            <span className="group-hover:text-blue-600 transition-colors">
+            <MessageCircle className="w-4 h-4 mr-2 group-hover:text-blue-600" />
+            <span className="group-hover:text-blue-600">
               Try Another Analysis
             </span>
           </Button>
-        </motion.div>
+        </div>
       </CardContent>
     </Card>
-  </motion.div>
+  </div>
 );
 
 export default ResultsSection;
