@@ -1,7 +1,6 @@
 "use client";
 
-import { Brain, User, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Brain } from "lucide-react";
 
 export default function Header() {
   return (
@@ -14,22 +13,11 @@ export default function Header() {
             </div>
             <div>
               <h1 className="text-lg font-semibold text-gray-800">
-                SentimentAI
+                Sentiment Analysis Research
               </h1>
-              <p className="text-xs text-gray-500">Text Analysis</p>
+              <p className="text-xs text-gray-500">Machine Learning Study</p>
             </div>
           </div>
-
-          <Button
-            variant="outline"
-            size="sm"
-            className="hover:bg-blue-50 hover:border-blue-200 transition-colors"
-            onClick={() => window.open("https://ataie.me/", "_blank")}
-          >
-            <User className="w-4 h-4 mr-2" />
-            <span>Portfolio</span>
-            <ExternalLink className="w-3 h-3 ml-1" />
-          </Button>
         </div>
       </div>
     </header>

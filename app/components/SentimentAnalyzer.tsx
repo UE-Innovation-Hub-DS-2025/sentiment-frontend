@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -172,12 +171,7 @@ export default function SentimentAnalyzer() {
   return (
     <>
       {/* Main Analysis Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mb-8"
-      >
+      <div className="mb-8">
         <Card className="shadow-2xl border-0 bg-white/95 backdrop-blur-sm overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
           <CardHeader className="pb-6 bg-gradient-to-r from-blue-50/50 to-purple-50/50">
@@ -214,7 +208,7 @@ export default function SentimentAnalyzer() {
                 placeholder="Enter your text here to analyze its sentiment..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                className="min-h-[160px] resize-none text-base leading-relaxed border-2 focus:border-blue-300 transition-all duration-300 rounded-xl"
+                className="min-h-[160px] resize-none text-base leading-relaxed border-2 focus:border-blue-300 rounded-xl"
                 disabled={isLoading}
               />
               <div className="flex justify-between text-xs text-gray-500">
@@ -243,16 +237,16 @@ export default function SentimentAnalyzer() {
                     disabled={isLoading}
                   >
                     <SelectTrigger
-                      className={`text-base h-12 border-2 focus:border-purple-300 transition-all duration-300 rounded-xl relative ${
+                      className={`text-base h-12 border-2 focus:border-purple-300 rounded-xl relative ${
                         showModelHint
-                          ? "pulse-hint glow-border border-purple-300 bg-purple-50/50"
+                          ? "border-purple-300 bg-purple-50/50"
                           : "hover:border-purple-200 hover:bg-purple-50/30"
                       }`}
                     >
                       <SelectValue placeholder="Choose an AI model for analysis" />
                       {showModelHint && (
                         <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                          <div className="w-5 h-5 text-purple-500 bounce-arrow">
+                          <div className="w-5 h-5 text-purple-500">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 20 20"
@@ -300,26 +294,19 @@ export default function SentimentAnalyzer() {
             ) : null}
 
             {/* Error Message */}
-            <AnimatePresence>
-              {error && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="p-4 bg-red-50 border-2 border-red-200 rounded-xl text-red-700 text-sm flex items-center gap-2"
-                >
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                  {error}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {error && (
+              <div className="p-4 bg-red-50 border-2 border-red-200 rounded-xl text-red-700 text-sm flex items-center gap-2">
+                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                {error}
+              </div>
+            )}
 
             {/* Action Buttons */}
             <div className="flex gap-4 pt-4">
               <Button
                 onClick={handleAnalyze}
                 disabled={isLoading || !text.trim() || !selectedModel}
-                className="flex-1 h-14 text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl"
+                className="flex-1 h-14 text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl shadow-lg hover:shadow-xl"
               >
                 {isLoading ? (
                   <>
@@ -338,7 +325,7 @@ export default function SentimentAnalyzer() {
                   onClick={handleReset}
                   variant="outline"
                   disabled={isLoading}
-                  className="px-8 h-14 text-base border-2 hover:bg-gray-50 transition-all duration-300 rounded-xl"
+                  className="px-8 h-14 text-base border-2 hover:bg-gray-50 rounded-xl"
                 >
                   Reset
                 </Button>
@@ -346,7 +333,7 @@ export default function SentimentAnalyzer() {
             </div>
           </CardContent>
         </Card>
-      </motion.div>
+      </div>
 
       {/* Supporting Features Section */}
       <div
@@ -356,12 +343,7 @@ export default function SentimentAnalyzer() {
         <ExamplesSection onExampleClick={handleExampleClick} />
 
         {/* Deep Learning Models */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="h-full"
-        >
+        <div className="h-full">
           <Card className="shadow-lg border-0 bg-white/90 backdrop-blur-sm h-full">
             <CardHeader className="pb-4">
               <CardTitle className="text-lg flex items-center gap-2">
@@ -374,12 +356,9 @@ export default function SentimentAnalyzer() {
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                {deepLearningModels.map((model, index) => (
-                  <motion.div
+                {deepLearningModels.map((model) => (
+                  <div
                     key={model.label}
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
                     className="p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border-2 border-purple-100"
                   >
                     <p className="font-medium text-gray-800 text-sm">
@@ -388,12 +367,12 @@ export default function SentimentAnalyzer() {
                     <p className="text-xs text-gray-500 mt-1">
                       {model.description}
                     </p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
       </div>
     </>
   );

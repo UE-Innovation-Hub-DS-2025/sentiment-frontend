@@ -11,10 +11,11 @@ export default function Hero() {
         </div>
       </div>
       <h1 className="text-4xl font-bold text-gray-800 mb-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-        AI-Powered Sentiment Analyzer
+        Sentiment Analysis Research
       </h1>
       <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-        Analyze the emotional tone of any text using advanced machine learning
+        A research project exploring machine learning models for text sentiment
+        analysis
       </p>
     </div>
   );

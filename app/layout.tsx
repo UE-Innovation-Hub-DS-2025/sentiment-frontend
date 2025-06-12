@@ -2,27 +2,24 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Sentiment Analyzer | Advanced Text Analysis Tool",
+  title: "Sentiment Analysis Research | Machine Learning Study",
   description:
-    "Analyze the emotional tone of your text with our AI-powered sentiment analysis tool. Get instant insights using advanced machine learning models including Logistic Regression, Naive Bayes, SVM, and Random Forest.",
+    "A research project exploring machine learning models for sentiment analysis. Study includes Logistic Regression, Naive Bayes, SVM, and Random Forest implementations.",
   keywords:
-    "sentiment analysis, AI, machine learning, text analysis, natural language processing, emotion detection, text sentiment, ML models",
-  authors: [{ name: "Ataie", url: "https://ataie.me/" }],
-  creator: "Ataie",
-  publisher: "Ataie",
+    "sentiment analysis, machine learning, text analysis, natural language processing, emotion detection, text sentiment, ML models, research",
   robots: "index, follow",
   openGraph: {
-    title: "AI Sentiment Analyzer | Advanced Text Analysis Tool",
+    title: "Sentiment Analysis Research | Machine Learning Study",
     description:
-      "Analyze the emotional tone of your text with our AI-powered sentiment analysis tool. Get instant insights using advanced machine learning models.",
+      "A research project exploring machine learning models for sentiment analysis.",
     url: "https://sentiment-analyzer.ataie.me",
-    siteName: "AI Sentiment Analyzer",
+    siteName: "Sentiment Analysis Research",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AI Sentiment Analyzer - Advanced Text Analysis Tool",
+        alt: "Sentiment Analysis Research - Machine Learning Study",
       },
     ],
     locale: "en_US",
@@ -30,11 +27,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Sentiment Analyzer | Advanced Text Analysis Tool",
+    title: "Sentiment Analysis Research | Machine Learning Study",
     description:
-      "Analyze the emotional tone of your text with our AI-powered sentiment analysis tool.",
+      "A research project exploring machine learning models for sentiment analysis.",
     images: ["/og-image.png"],
-    creator: "@ataie",
   },
   viewport: "width=device-width, initial-scale=1",
   themeColor: "#2563eb",
@@ -57,11 +53,6 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
-        />
-        <link rel="canonical" href="https://sentiment-analyzer.ataie.me" />
-        <meta
-          name="google-site-verification"
-          content="your-google-verification-code"
         />
       </head>
       <body style={{ fontFamily: "Inter, sans-serif" }}>{children}</body>

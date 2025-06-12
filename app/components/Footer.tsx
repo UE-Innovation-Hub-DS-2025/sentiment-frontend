@@ -18,7 +18,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-blue-600 transition-colors duration-300 flex items-center gap-1"
           >
-            Created by Ataie
+            Created by Abbas Ataie
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
